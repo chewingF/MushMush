@@ -9,10 +9,11 @@ public class CameraController : MonoBehaviour
     {
         float timer = 0f;
         float difference = changeToSize - this.gameObject.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize;
-
+        float startSize = this.gameObject.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize;
+        
         do
         {
-            this.gameObject.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize  = ((timer / changeTime * changeToSize) + 1.5f);
+            this.gameObject.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += 0.1f;
 
             timer += Time.deltaTime;
             
