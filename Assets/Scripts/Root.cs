@@ -8,7 +8,7 @@ public class Root : MonoBehaviour
 
     [HideInInspector] public List<Vector2> points = new List<Vector2>();
     [HideInInspector] public int length = 0;
-    [HideInInspector] public Vector2 currDir = Vector2.down;
+    [HideInInspector] public Vector2 defaultDir = Vector2.down;
 
     public void AddPoint(Vector2 newPoint)
     {
@@ -19,9 +19,6 @@ public class Root : MonoBehaviour
         lineRenderer.positionCount = length;
         lineRenderer.SetPosition(length - 1, newPoint);
 
-        if (length >= 2){
-            this.currDir = (Vector2)(lineRenderer.GetPosition(length - 1) - lineRenderer.GetPosition(length - 2));
-        }
     }
 
     public Vector2 GetLastPoint()
@@ -32,8 +29,11 @@ public class Root : MonoBehaviour
         return (Vector2)lineRenderer.GetPosition(length - 1);
     }
 
-    public Vector2 GetLastDir(){
-        return this.currDir;
+    public Vector2 GetLastDir(int chkLen){
+        if (length < chkLen + 1){
+            return this.defaultDir;
+        }
+        return ((Vector2)lineRenderer.GetPosition(length - 1) - (Vector2)lineRenderer.GetPosition(length - 1 - chkLen));
     }
 
     public void SetLineColor(Gradient colorGradient)
