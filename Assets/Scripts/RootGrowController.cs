@@ -17,6 +17,8 @@ public class RootGrowController : Singleton<RootGrowController>
 
     public GameObject rootsManager;
 
+    public bool inputAllowed = false;
+
 
     private Vector2 _growDir = new Vector2();
     public Vector2 growDir{get{return this._growDir;}}
@@ -48,16 +50,18 @@ public class RootGrowController : Singleton<RootGrowController>
     void Update()
     {
         UpdateDirInput();
-
-        if (Input.GetMouseButtonDown(1))
+        if (inputAllowed)
         {
-            Debug.Log("Stop");
-            inputDrawing = false;
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Grow");
-            inputDrawing = true;
+            if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("Stop");
+                inputDrawing = false;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Grow");
+                inputDrawing = true;
+            }
         }
 
         UpdateLineRender();
