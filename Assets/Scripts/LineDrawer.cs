@@ -31,7 +31,15 @@ public class LineDrawer : MonoBehaviour
 
         if (currrentLine != null)
         {
-            Draw();
+            //if there is enough ink
+            if (InkSystem.CanDraw())
+            {
+                Draw();
+            }
+            else
+            {
+                Debug.Log("There is no ink!");
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -54,6 +62,7 @@ public class LineDrawer : MonoBehaviour
     {
         Vector2 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
         currrentLine.AddPoint(mousePosition);
+        InkSystem.decInk(1);
     }
 
     void EndDraw()
