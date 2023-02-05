@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootGrowController : MonoBehaviour
+public class RootGrowController : Singleton<RootGrowController>
 {
     private Root _currRoot {
         get{
@@ -11,7 +11,7 @@ public class RootGrowController : MonoBehaviour
     }
 
     public bool hideMouse = true;
-    public float mouseSensitive = 1;
+    public float mouseSensitive = 0.1f;
     public int dirChkLen = 10;
     public float TurnAngLmt = 15;
 
@@ -20,8 +20,9 @@ public class RootGrowController : MonoBehaviour
 
     private Vector2 _growDir = new Vector2();
     public Vector2 growDir{get{return this._growDir;}}
-    public float growRate = 0.01f;
-    private float growSpd = 1;
+    public float growSpd = 0.01f;
+    [HideInInspector]
+    public float growRate = 1;
     
     private bool inputDrawing;
 
@@ -99,19 +100,19 @@ public class RootGrowController : MonoBehaviour
         if (inputDrawing && InkSystem.CanDraw())
         {
             Vector2 lastPos = this._currRoot.GetLastPoint(); ;
-            RaycastHit2D hit = Physics2D.CircleCast(lastPos+ (Vector2)rootsManager.transform.position, this._currRoot.lineRenderer.endWidth/3f, Input.mousePosition, 0.1f, cantDrawOverLayer);
 
-            if (hit)
-            {
-                Debug.Log("Bonk");
-                return;
-            }
-            else
-            {
-                this._currRoot.AddPoint(_growDir * growSpd * Time.deltaTime + lastPos);
-                this._currRoot.lineRenderer.sortingLayerID = rootsSortingLayerIndex;
-                InkSystem.decInk(1);
-            }
+            // // Old Solution, Stop when hit cantDrawOverlap
+            // RaycastHit2D hit = Physics2D.CircleCast(lastPos+ (Vector2)rootsManager.transform.position, this._currRoot.lineRenderer.endWidth/3f, Input.mousePosition, 0.1f, cantDrawOverLayer);
+            // if (hit)
+            // {
+            //     Debug.Log("Bonk");
+            //     return;
+            // }
+            
+            this._currRoot.AddPoint(_growDir * growSpd * Time.deltaTime * this.growRate + lastPos);
+            this._currRoot.lineRenderer.sortingLayerID = rootsSortingLayerIndex;
+            InkSystem.decInk(1);
+
         }
     } 
 }
