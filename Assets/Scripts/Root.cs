@@ -26,6 +26,9 @@ public class Root : MonoBehaviour
 
     public Vector2 GetLastPoint()
     {
+        if (length <= 0){
+            return this.transform.position;
+        }
         return (Vector2)lineRenderer.GetPosition(length - 1);
     }
 
