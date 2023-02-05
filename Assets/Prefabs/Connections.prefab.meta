@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Connections.prefab.meta
 guid: 0232cf9f820a4cb48aac384b01bff31f
 PrefabImporter:
+========
+guid: ba92eb9157bfb4b3fa15625d53937e4e
+NativeFormatImporter:
+>>>>>>>> df9d1fa068bec7d40987447ae7770f490f0183a2:Assets/Scenes/Intro/full_view.asset.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

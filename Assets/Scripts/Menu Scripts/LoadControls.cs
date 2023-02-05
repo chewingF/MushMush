@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadControls : MonoBehaviour
 {
+   public GameObject controls;
    public void LoadControlScene()
    {
     Debug.Log("Load Controls");
-    SceneManager.LoadScene("Controls");
+    controls.SetActive(true);
    }
 }

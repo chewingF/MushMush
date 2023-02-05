@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
     public Camera mainCam;
+    public CinemachineBrain camBrain;
+    public CinemachineVirtualCamera cutsceneCam;
+    public CinemachineVirtualCamera followCam;
+
     [SerializeField]private VFXController vfxControl;
 
     public GameObject[] eyes;
     public GameObject player;
+    public GameObject[] blueObjects;
     
     void Start() 
     {
@@ -18,15 +24,15 @@ public class GameManager : MonoBehaviour
 
     void Update() 
     {
-        // if (Input.GetKeyDown(KeyCode.Space)) 
-        // {
-        //     player.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            player.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
 
-        //     foreach(Transform child in player.transform) 
-        //     {
-        //         child.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
-        //     }
-        // }
+            foreach(Transform child in player.transform) 
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+            }
+        }
     }
 
     private IEnumerator StartGame() 
@@ -39,7 +45,14 @@ public class GameManager : MonoBehaviour
         }
 
         player.SetActive(true);
-        StartCoroutine(vfxControl.FadeVignette(2f, 0f));
-        StartCoroutine(mainCam.gameObject.GetComponent<CameraController>().ChangeCamSize(12f, 2f));
+        //StartCoroutine(vfxControl.FadeVignette(2f, 0f));
+        StartCoroutine(cutsceneCam.gameObject.GetComponent<CameraController>().ChangeVCamSize(3f, 2f));
+        //StartCoroutine(mainCam.gameObject.GetComponent<CameraController>().ChangeCamSize(12f, 2f));
+
+        yield return new WaitForSeconds(2f);
+
+        cutsceneCam.Priority = 0;
+        followCam.Priority = 10;
+
     }
 }
