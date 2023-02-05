@@ -67,7 +67,8 @@ public class LineDrawer : MonoBehaviour
             }
             else
             {
-                currrentLine.UsePhysics(true);
+                //turn off/on physics here
+                currrentLine.UsePhysics(false);
                 currrentLine = null;
             }
         }

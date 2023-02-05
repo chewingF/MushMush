@@ -8,6 +8,8 @@ public class Line : MonoBehaviour
     public EdgeCollider2D edgeCollider;
     public Rigidbody2D rigidbody;
 
+    public GameObject lastPoint;
+
     [HideInInspector] public List<Vector2> points = new List<Vector2>();
     [HideInInspector] public int pointsCount = 0;
 
@@ -34,6 +36,7 @@ public class Line : MonoBehaviour
 
     public Vector2 GetLastPoint()
     {
+        //currrentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();
         return (Vector2)lineRenderer.GetPosition(pointsCount - 1);
     }
 
@@ -60,15 +63,4 @@ public class Line : MonoBehaviour
         edgeCollider.edgeRadius = width / 2f;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
