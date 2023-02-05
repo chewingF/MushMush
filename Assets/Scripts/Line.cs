@@ -8,8 +8,6 @@ public class Line : MonoBehaviour
     public EdgeCollider2D edgeCollider;
     public Rigidbody2D rigidbody;
 
-    public GameObject lastPoint;
-
     [HideInInspector] public List<Vector2> points = new List<Vector2>();
     [HideInInspector] public int pointsCount = 0;
 
@@ -36,7 +34,7 @@ public class Line : MonoBehaviour
 
     public Vector2 GetLastPoint()
     {
-        //currrentLine = Instantiate(linePrefab, this.transform).GetComponent<Line>();
+        GameObject.Find("LastPoint").transform.position = (Vector2)lineRenderer.GetPosition(pointsCount - 1);
         return (Vector2)lineRenderer.GetPosition(pointsCount - 1);
     }
 

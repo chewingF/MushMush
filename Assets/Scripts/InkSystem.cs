@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InkSystem : MonoBehaviour
 {
-    static public int Ink = 500;
+    static public int Ink = 10000;
 
     public static bool CanDraw()
     {
