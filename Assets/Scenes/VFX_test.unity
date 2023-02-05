@@ -808,6 +808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427311188}
   - component: {fileID: 1427311187}
+  - component: {fileID: 1427311189}
   m_Layer: 0
   m_Name: carrot
   m_TagString: Untagged
@@ -875,13 +876,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427311186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7599983, y: 7.1422424, z: 0}
-  m_LocalScale: {x: 3.6345, y: 3.6345, z: 3.6345}
+  m_LocalPosition: {x: 20.4, y: -3, z: 0}
+  m_LocalScale: {x: 4.841301, y: 4.841301, z: 4.841301}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1427311189
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427311186}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bb714f80cc7149098ec52205719d70f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1449527426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018192134}
   - component: {fileID: 2018192133}
+  - component: {fileID: 2018192135}
   m_Layer: 0
   m_Name: raddish
   m_TagString: Untagged
@@ -1253,13 +1275,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018192132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.93, y: -0.99325, z: 0}
-  m_LocalScale: {x: 6.5985, y: 6.5985, z: 6.5985}
+  m_LocalPosition: {x: 10.11, y: -0.9932501, z: 0}
+  m_LocalScale: {x: 6.4335375, y: 6.5985, z: 6.5985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2018192135
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018192132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8d323740b2ab4134b5ea081dbb3c489, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7895129303159000801
 PrefabInstance:
   m_ObjectHideFlags: 0

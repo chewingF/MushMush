@@ -9,6 +9,7 @@ public class VFXController : MonoBehaviour
     Volume pp_volume;
     Vignette pp_vignette;
     Bloom pp_bloom;
+    ColorAdjustments pp_colAdjust;
     // DepthOfField pp_depthOfField;
     // ChromaticAberration pp_aberration;
 
@@ -19,6 +20,7 @@ public class VFXController : MonoBehaviour
 
         pp_volume.profile.TryGet<Vignette>(out pp_vignette);
         pp_volume.profile.TryGet<Bloom>(out pp_bloom);
+        pp_volume.profile.TryGet<ColorAdjustments>(out pp_colAdjust);
     }
 
     private void SetVignetteFocus(float x, float y)
@@ -26,12 +28,14 @@ public class VFXController : MonoBehaviour
         pp_vignette.center.value = new Vector2(x, y);
     }
 
-    private IEnumerator FadeVignette(float fadeTime)
+    public IEnumerator FadeVignette(float fadeTime, float intensityVal)
     {
         float timer = 0f;
+        float startingVal = pp_vignette.intensity.value;
+
         do
         {
-            pp_vignette.intensity.value = (timer / fadeTime);
+            pp_vignette.intensity.value -= (timer / fadeTime * intensityVal);
 
             timer += Time.deltaTime;
             
