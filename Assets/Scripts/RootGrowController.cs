@@ -15,6 +15,12 @@ public class RootGrowController : MonoBehaviour
     private Vector2 _growDir = new Vector2();
     public float growRate = 0.01f;
     private float growSpd = 1;
+    
+    private bool inputDrawing;
+
+    public LayerMask cantDrawOverLayer;
+    int cantDrawOerLayerIndex;
+    
 
     private Vector2 _lastMousePos = Vector2.zero;
 
@@ -23,13 +29,27 @@ public class RootGrowController : MonoBehaviour
     {
         this._lastMousePos = Input.mousePosition;
         Cursor.visible = false;
+        cantDrawOerLayerIndex = LayerMask.NameToLayer("CantDrawOver");
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateDirInput();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Stop");
+            inputDrawing = false;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Grow");
+            inputDrawing = true;
+        }
+
         UpdateLineRender();
+        
     }
 
     void UpdateDirInput(){
@@ -52,31 +72,29 @@ public class RootGrowController : MonoBehaviour
         // newGrowDir.Normalize();
 
         Debug.DrawLine(Vector3.zero, newGrowDir * 10, Color.red);
-        Debug.Log(newGrowDir);
-
-        // TODO: limit arrow by last grow dir
+    
         this._growDir = newGrowDir;
 
     }
 
     void UpdateLineRender(){
-        // if (!lr){
-        //     return;
-        // }
-        // if (lr.positionCount == 0){
-        //     // TODO: create first postion instead return
-        //     return;
-        // }
+        if (inputDrawing && InkSystem.CanDraw())
+        {
+            Vector2 lastPos = this._currRoot.GetLastPoint();
+            RaycastHit2D hit = Physics2D.CircleCast(lastPos, this._currRoot.lineRenderer.endWidth / 3f, Vector2.zero, 0.1f, cantDrawOverLayer);
 
-        Vector2 lastPos = this._currRoot.GetLastPoint();
-            //.GetPosition(lr.positionCount - 1);
-        // Vector3 newPos = lastPos;
-        // newPos += (this.growDir.normalized * this.growSpd * growRate);
-
-        // lr.positionCount += 1;
-        // lr.SetPosition(lr.positionCount - 1, newPos);
-
-        this._currRoot.AddPoint(_growDir * growSpd*Time.deltaTime+lastPos);
-
+            if (hit)
+            {
+                return;
+            }
+            else
+            {
+                //cant grow roots on existed roots
+                //Debug.Log(this._currRoot.gameObject);
+                //this._currRoot.gameObject.layer = cantDrawOerLayerIndex;
+                this._currRoot.AddPoint(_growDir * growSpd * Time.deltaTime + lastPos);
+                InkSystem.decInk(1);
+            }
+        }
     } 
 }
