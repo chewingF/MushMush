@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraControl : MonoBehaviour
+public class lastPosControl : MonoBehaviour
 {
     public GameObject rootsManager;
     private Root _currRoot
@@ -29,4 +29,5 @@ public class CameraControl : MonoBehaviour
     {
         LastPos.position = this._currRoot.GetLastPoint()+(Vector2)rootsManager.transform.position;
     }
+
 }

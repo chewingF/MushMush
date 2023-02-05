@@ -95,7 +95,7 @@ public class RootGrowController : MonoBehaviour
         if (inputDrawing && InkSystem.CanDraw())
         {
             Vector2 lastPos = this._currRoot.GetLastPoint(); ;
-            RaycastHit2D hit = Physics2D.CircleCast(lastPos+ (Vector2)rootsManager.transform.position, this._currRoot.lineRenderer.endWidth/3f, Input.mousePosition, 0.1f, cantDrawOverLayer);
+            RaycastHit2D hit = Physics2D.CircleCast(lastPos+ (Vector2)rootsManager.transform.position, this._currRoot.lineRenderer.endWidth/3f, Vector2.zero, 0.1f, cantDrawOverLayer);
 
             if (hit)
             {
