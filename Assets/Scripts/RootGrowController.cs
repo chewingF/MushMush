@@ -11,9 +11,12 @@ public class RootGrowController : MonoBehaviour
     }
 
     public float mouseSensitive = 1;
+    public int dirChkLen = 10;
     public float TurnAngLmt = 15;
 
+
     private Vector2 _growDir = new Vector2();
+    public Vector2 growDir{get{return this._growDir;}}
     public float growRate = 0.01f;
     private float growSpd = 1;
     
@@ -64,11 +67,25 @@ public class RootGrowController : MonoBehaviour
         newGrowDir.Normalize();
 
         // Check angle limit
-        Vector2 lastDir = this._currRoot.GetLastDir(30);
+        Vector2 lastDir = this._currRoot.GetLastDir(this.dirChkLen);
         if (Vector2.Angle(lastDir, newGrowDir) <= TurnAngLmt){
             this._growDir = newGrowDir;
+        } else {
+            //TODO : bug needs to be fix
+            // see which is the limit side to choose
+            Vector2 lmtV2A = lastDir;
+            Vector2 lmtV2B = lastDir;
+            lmtV2A.Rotate(this.TurnAngLmt);
+            lmtV2B.Rotate(-this.TurnAngLmt);
+            float angA = Vector2.Angle(lmtV2A, newGrowDir);
+            float angB = Vector2.Angle(lmtV2B, newGrowDir);
+            if (angA > angB){
+                this._growDir = lmtV2B;
+            } else {
+                this._growDir = lmtV2A;
+            }
         }
-
+        this._growDir.Normalize();
 
     }
 
@@ -91,3 +108,18 @@ public class RootGrowController : MonoBehaviour
         }
     } 
 }
+
+
+ // TODO: Move position
+ public static class Vector2Extension {
+     public static Vector2 Rotate(this Vector2 v, float degrees) {
+         float radians = degrees * Mathf.Deg2Rad;
+         float sin = Mathf.Sin(radians);
+         float cos = Mathf.Cos(radians);
+         
+         float tx = v.x;
+         float ty = v.y;
+ 
+         return new Vector2(cos * tx - sin * ty, sin * tx + cos * ty);
+     }
+ }

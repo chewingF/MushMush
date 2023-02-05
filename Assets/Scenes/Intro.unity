@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1305954185}
-  vfxControl: {fileID: 0}
+  vfxControl: {fileID: 1305954187}
   eyes:
   - {fileID: 1220765787}
   - {fileID: 1626522931}
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305954181}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bba765af255743009c587d77d96db4b, type: 3}
   m_Name: 
@@ -895,6 +895,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb0ae33629c844c3aebd00f13bc16ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1305954189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305954181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21aa50131bc134f04a14efdbeb7686be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PipelineAsset: {fileID: 11400000, guid: 9b9c0b62deeea4218843a7ad59325649, type: 2}
 --- !u!1 &1324537555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 859449293564011667, guid: cfeff2c4803204746b1050912c7bd7f4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 859449293564011676, guid: cfeff2c4803204746b1050912c7bd7f4, type: 3}
       propertyPath: near clip plane
       value: 0.5
@@ -1625,6 +1642,10 @@ PrefabInstance:
     - target: {fileID: 859449293564011678, guid: cfeff2c4803204746b1050912c7bd7f4, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 859449293564011678, guid: cfeff2c4803204746b1050912c7bd7f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfeff2c4803204746b1050912c7bd7f4, type: 3}
