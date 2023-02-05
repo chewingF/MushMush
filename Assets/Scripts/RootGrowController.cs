@@ -67,13 +67,16 @@ public class RootGrowController : MonoBehaviour
         //     // TODO: create first postion instead return
         //     return;
         // }
-        
-        // Vector3 lastPos = lr.GetPosition(lr.positionCount - 1);
+
+        Vector2 lastPos = this._currRoot.GetLastPoint();
+            //.GetPosition(lr.positionCount - 1);
         // Vector3 newPos = lastPos;
         // newPos += (this.growDir.normalized * this.growSpd * growRate);
 
         // lr.positionCount += 1;
         // lr.SetPosition(lr.positionCount - 1, newPos);
+
+        this._currRoot.AddPoint(_growDir * growSpd*Time.deltaTime+lastPos);
 
     } 
 }
