@@ -29,9 +29,13 @@ public class VFXController : MonoBehaviour
 
     void Update() 
     {
+        // if (Input.GetKeyDown(KeyCode.Space)) 
+        // {
+        //     SwapProfiles();
+        // }
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            SwapProfiles();
+            ChangeColor(1f, -70f);
         }
     }
 
@@ -94,8 +98,23 @@ public class VFXController : MonoBehaviour
         } while (timer <= fadeTime);
     }
 
-    public void ChangeColor(float saturationVal) 
+    public void ChangeColor(float fadeTime, float saturationVal) 
     {
-        pp_colAdjust.saturation.value = saturationVal;
+        //pp_colAdjust.saturation.value = saturationVal;
+        StartCoroutine(ChangeSaturation(fadeTime, saturationVal));
+    }
+
+    private IEnumerator ChangeSaturation(float fadeTime, float saturationVal)
+    {
+        float timer = 0f;
+
+        do
+        {
+            pp_colAdjust.saturation.value += 0.1f;
+
+            timer += Time.deltaTime;
+
+            yield return null;
+        } while (timer <= fadeTime);
     }
 }
