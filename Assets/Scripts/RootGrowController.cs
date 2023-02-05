@@ -20,6 +20,7 @@ public class RootGrowController : MonoBehaviour
 
     public LayerMask cantDrawOverLayer;
     int cantDrawOerLayerIndex;
+    int rootsSortingLayerIndex;
     
 
     private Vector2 _lastMousePos = Vector2.zero;
@@ -30,6 +31,7 @@ public class RootGrowController : MonoBehaviour
         this._lastMousePos = Input.mousePosition;
         Cursor.visible = false;
         cantDrawOerLayerIndex = LayerMask.NameToLayer("CantDrawOver");
+        rootsSortingLayerIndex = SortingLayer.NameToID("Roots");
     }
 
     // Update is called once per frame
@@ -93,6 +95,7 @@ public class RootGrowController : MonoBehaviour
                 //Debug.Log(this._currRoot.gameObject);
                 //this._currRoot.gameObject.layer = cantDrawOerLayerIndex;
                 this._currRoot.AddPoint(_growDir * growSpd * Time.deltaTime + lastPos);
+                this._currRoot.lineRenderer.sortingLayerID = rootsSortingLayerIndex;
                 InkSystem.decInk(1);
             }
         }
