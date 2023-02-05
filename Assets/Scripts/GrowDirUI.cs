@@ -18,6 +18,6 @@ public class GrowDirUI : MonoBehaviour
             return;
         }
         this.transform.LookAt((Vector3)gc.growDir + this.transform.position);
-        this.transform.position = RootsManager.MainRoot().GetLastPoint();
+        this.transform.position = RootsManager.MainRoot().GetLastPoint(true);
     }
 }
