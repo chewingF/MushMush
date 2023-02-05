@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadMenu : MonoBehaviour
 {
-    public GameObject contorls;
+    public GameObject controls;
       public void GoBack()
     {
-        contorls.SetActive(false);
+        controls.SetActive(false);
     }
 }

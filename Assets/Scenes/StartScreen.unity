@@ -463,12 +463,12 @@ GameObject:
   - component: {fileID: 575399022}
   - component: {fileID: 575399025}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &575399021
 RectTransform:
   m_ObjectHideFlags: 0
@@ -483,11 +483,11 @@ RectTransform:
   m_Children:
   - {fileID: 1078555235}
   m_Father: {fileID: 2100668187}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -705.02, y: -51.0367}
+  m_AnchoredPosition: {x: -705.02, y: -153.11}
   m_SizeDelta: {x: 347.39, y: 102.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575399022
@@ -535,8 +535,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2100668191}
-        m_TargetAssemblyTypeName: LoadSettings, Assembly-CSharp
-        m_MethodName: LoadSettingsScene
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -794,11 +794,11 @@ RectTransform:
   m_Children:
   - {fileID: 2097200209}
   m_Father: {fileID: 2100668187}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -706.46, y: -153.11}
+  m_AnchoredPosition: {x: -705.02, y: -51.0367}
   m_SizeDelta: {x: 347.39, y: 102.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842988309
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Exit Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 391a20e50c1b83d419ac7fefd7094b25, type: 2}
   m_sharedMaterial: {fileID: -2508130984981358369, guid: 391a20e50c1b83d419ac7fefd7094b25, type: 2}
@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f8b891137f717458f94e940ae42715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contorls: {fileID: 1276339815}
+  controls: {fileID: 1276339815}
 --- !u!1 &1197660915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,8 +3101,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 54620454}
-  - {fileID: 575399021}
   - {fileID: 842988308}
+  - {fileID: 575399021}
   m_Father: {fileID: 154606237}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3145,7 +3145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2100668186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b60ea890c41524cb15a4ede880a8f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e6709941d1065e4884f565ff7efc8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2117445093
@@ -3207,7 +3207,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117445093}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2117445096
 Camera:
   m_ObjectHideFlags: 0
