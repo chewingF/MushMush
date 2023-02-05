@@ -10,6 +10,7 @@ public class RootGrowController : MonoBehaviour
         }
     }
 
+    public bool hideMouse = true;
     public float mouseSensitive = 1;
     public int dirChkLen = 10;
     public float TurnAngLmt = 15;
@@ -33,7 +34,9 @@ public class RootGrowController : MonoBehaviour
     void Start()
     {
         this._lastMousePos = Input.mousePosition;
-        Cursor.visible = false;
+        if (this.hideMouse)
+            Cursor.visible = false;
+
         cantDrawOerLayerIndex = LayerMask.NameToLayer("CantDrawOver");
         rootsSortingLayerIndex = SortingLayer.NameToID("Roots");
     }
@@ -66,6 +69,7 @@ public class RootGrowController : MonoBehaviour
         newGrowDir += moveDt;
         newGrowDir.Normalize();
 
+
         // Check angle limit
         Vector2 lastDir = this._currRoot.GetLastDir(this.dirChkLen);
         if (Vector2.Angle(lastDir, newGrowDir) <= TurnAngLmt){
@@ -73,10 +77,8 @@ public class RootGrowController : MonoBehaviour
         } else {
             //TODO : bug needs to be fix
             // see which is the limit side to choose
-            Vector2 lmtV2A = lastDir;
-            Vector2 lmtV2B = lastDir;
-            lmtV2A.Rotate(this.TurnAngLmt);
-            lmtV2B.Rotate(-this.TurnAngLmt);
+            Vector2 lmtV2A = lastDir.Rotate(this.TurnAngLmt);
+            Vector2 lmtV2B = lastDir.Rotate(-this.TurnAngLmt);
             float angA = Vector2.Angle(lmtV2A, newGrowDir);
             float angB = Vector2.Angle(lmtV2B, newGrowDir);
             if (angA > angB){
@@ -85,6 +87,8 @@ public class RootGrowController : MonoBehaviour
                 this._growDir = lmtV2A;
             }
         }
+
+
         this._growDir.Normalize();
 
     }
