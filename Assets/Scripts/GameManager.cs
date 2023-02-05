@@ -26,12 +26,17 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            player.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+            // player.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
 
-            foreach(Transform child in player.transform) 
-            {
-                child.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
-            }
+            // foreach(Transform child in player.transform) 
+            // {
+            //     child.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+            // }
+
+            // foreach(GameObject blueObj in blueObjects) 
+            // {
+            //     blueObj.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+            // }
         }
     }
 
@@ -39,20 +44,19 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        foreach(GameObject eye in eyes) 
-        {
-            eye.SetActive(false);
-        }
+        // foreach(GameObject eye in eyes) 
+        // {
+        //     eye.SetActive(false);
+        // }
 
-        player.SetActive(true);
-        //StartCoroutine(vfxControl.FadeVignette(2f, 0f));
-        StartCoroutine(cutsceneCam.gameObject.GetComponent<CameraController>().ChangeVCamSize(3f, 2f));
-        //StartCoroutine(mainCam.gameObject.GetComponent<CameraController>().ChangeCamSize(12f, 2f));
+        // player.SetActive(true);
+        // //StartCoroutine(vfxControl.FadeVignette(2f, 0f));
+        // StartCoroutine(cutsceneCam.gameObject.GetComponent<CameraController>().ChangeVCamSize(3f, 2f));
+        // //StartCoroutine(mainCam.gameObject.GetComponent<CameraController>().ChangeCamSize(12f, 2f));
 
-        yield return new WaitForSeconds(2f);
+        // yield return new WaitForSeconds(2f);
 
         cutsceneCam.Priority = 0;
         followCam.Priority = 10;
-
     }
 }
