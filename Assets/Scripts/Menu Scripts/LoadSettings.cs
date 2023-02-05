@@ -7,7 +7,7 @@ public class LoadSettings : MonoBehaviour
 {
    public void LoadSettingsScene()
    {
-    Debug.Log("Load Settings");
-    SceneManager.LoadScene("Settings");
+    Debug.Log("Load Menu");
+    SceneManager.LoadScene("StartScreen");
    }
 }
