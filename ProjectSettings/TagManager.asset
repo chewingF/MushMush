@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Post Processing
   - Water
   - UI
   - CantDrawOver
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: world objects
+    uniqueID: 1008505191
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
