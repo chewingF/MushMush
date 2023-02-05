@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1305954185}
-  vfxControl: {fileID: 0}
+  vfxControl: {fileID: 1305954187}
   eyes:
   - {fileID: 1220765787}
   - {fileID: 1626522931}
