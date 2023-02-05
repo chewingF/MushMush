@@ -21,13 +21,16 @@ public class Root : MonoBehaviour
 
     }
 
-    public Vector2 GetLastPoint()
+    public Vector2 GetLastPoint(bool isWorld = false)
     {
-        if (length <= 0){
-            //return this.transform.position;
-            return Vector2.zero;
+        Vector2 pos = Vector2.zero;
+        if (length > 0){
+            pos =  (Vector2)lineRenderer.GetPosition(length - 1);
         }
-        return (Vector2)lineRenderer.GetPosition(length - 1);
+        if (isWorld){
+            pos = pos + (Vector2)this.transform.position;
+        }
+        return pos;
     }
 
     public Vector2 GetLastDir(int chkLen){
