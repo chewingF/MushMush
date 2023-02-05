@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InkSystem : MonoBehaviour
 {
     static public int Ink = 5000;
+    public Slider slider;
 
     public static bool CanDraw()
     {
@@ -25,5 +27,10 @@ public class InkSystem : MonoBehaviour
     public static void decInk(int ink_minus)
     {
         Ink -= ink_minus;
+    }
+
+    private void Update()
+    {
+        slider.value = Ink;
     }
 }
