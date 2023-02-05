@@ -11,7 +11,11 @@ public class BuildaConnection : MonoBehaviour
             Debug.Log("HI");
             InkSystem.addInk(1000);
             collision.gameObject.transform.Find("glow").gameObject.SetActive(true);
+
             //adjust the camera here!
+            CinemachineSwitcher.Instance.SwitchCamera("Full");
+            //CinemachineSwitcher.Instance.SwitchCamera("Mush");
+            //CinemachineSwitcher.Instance.SwitchCamera("Follow");
         }
     }
 

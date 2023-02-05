@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CinemachineSwitcher : MonoBehaviour
 {
+    private static CinemachineSwitcher _instance;
+    public static CinemachineSwitcher Instance { get { return _instance; } }
 
     Animator _animator;
     [SerializeField] bool _keyTest = false;
