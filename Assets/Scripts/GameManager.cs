@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
 
         // yield return new WaitForSeconds(2f);
 
+        if (RootGrowController.Instance)
+        {
+            RootGrowController.Instance.inputAllowed = true;
+        }
+
         cutsceneCam.Priority = 0;
         followCam.Priority = 10;
     }

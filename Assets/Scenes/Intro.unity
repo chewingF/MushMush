@@ -4173,6 +4173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RootGrowController
       objectReference: {fileID: 0}
+    - target: {fileID: 4784422091771415013, guid: dc56d7d355636fc40a03680224cd1591, type: 3}
+      propertyPath: hideMouse
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4784422091771415014, guid: dc56d7d355636fc40a03680224cd1591, type: 3}
       propertyPath: m_RootOrder
       value: 43
