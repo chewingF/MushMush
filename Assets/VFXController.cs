@@ -7,9 +7,13 @@ using UnityEngine.Rendering.Universal;
 public class VFXController : MonoBehaviour
 {
     Volume pp_volume;
+    public VolumeProfile pp_profile_default;
+    public VolumeProfile pp_profile_mushFollow;
     Vignette pp_vignette;
     Bloom pp_bloom;
     ColorAdjustments pp_colAdjust;
+    public GameObject mainCam;
+
     // DepthOfField pp_depthOfField;
     // ChromaticAberration pp_aberration;
 
@@ -23,25 +27,45 @@ public class VFXController : MonoBehaviour
         pp_volume.profile.TryGet<ColorAdjustments>(out pp_colAdjust);
     }
 
+    void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            SwapProfiles();
+        }
+    }
+
     private void SetVignetteFocus(float x, float y)
     {
         pp_vignette.center.value = new Vector2(x, y);
     }
 
-    public IEnumerator FadeVignette(float fadeTime, float intensityVal)
+    public void SwapProfiles() 
     {
-        float timer = 0f;
-        float startingVal = pp_vignette.intensity.value;
-
-        do
+        if (pp_volume.profile == pp_profile_default) 
         {
-            pp_vignette.intensity.value -= (timer / fadeTime * intensityVal);
-
-            timer += Time.deltaTime;
-            
-            yield return null;
-        }  while (timer <= fadeTime);
+            pp_volume.profile = pp_profile_mushFollow;
+        }
+        else
+        {
+            pp_volume.profile = pp_profile_default;
+        }
     }
+
+    // public IEnumerator FadeVignette(float fadeTime, float intensityVal)
+    // {
+    //     float timer = 0f;
+    //     //float startingVal = pp_vignette.intensity.value;
+
+    //     do
+    //     {
+    //         pp_vignette.intensity.value -= (timer / fadeTime * intensityVal);
+
+    //         timer += Time.deltaTime;
+            
+    //         yield return null;
+    //     }  while (timer <= fadeTime);
+    // }
 
     // private IEnumerator FadeAberration(float fadeTime)
     // {
