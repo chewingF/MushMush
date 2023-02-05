@@ -15,6 +15,8 @@ public class RootGrowController : MonoBehaviour
     public int dirChkLen = 10;
     public float TurnAngLmt = 15;
 
+    public GameObject rootsManager;
+
 
     private Vector2 _growDir = new Vector2();
     public Vector2 growDir{get{return this._growDir;}}
@@ -96,8 +98,8 @@ public class RootGrowController : MonoBehaviour
     void UpdateLineRender(){
         if (inputDrawing && InkSystem.CanDraw())
         {
-            Vector2 lastPos = this._currRoot.GetLastPoint();
-            RaycastHit2D hit = Physics2D.CircleCast(lastPos, this._currRoot.lineRenderer.endWidth / 3f, Vector2.zero, 0.1f, cantDrawOverLayer);
+            Vector2 lastPos = this._currRoot.GetLastPoint(); ;
+            RaycastHit2D hit = Physics2D.CircleCast(lastPos+ (Vector2)rootsManager.transform.position, this._currRoot.lineRenderer.endWidth/3f, Input.mousePosition, 0.1f, cantDrawOverLayer);
 
             if (hit)
             {
