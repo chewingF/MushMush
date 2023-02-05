@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8842d2dafad1e514cab14a5c3b3fa28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideMouse: 1
+  hideMouse: 0
   mouseSensitive: 0.1
   dirChkLen: 10
   TurnAngLmt: 15

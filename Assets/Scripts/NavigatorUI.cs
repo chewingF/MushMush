@@ -22,7 +22,7 @@ public class NavigatorUI : MonoBehaviour
             return;
         }
         this.transform.LookAt(target.transform.position);
-        this.transform.position = RootsManager.MainRoot().GetLastPoint();
+        this.transform.position = RootsManager.MainRoot().GetLastPoint(true);
 
         this.timer += Time.deltaTime;
         if (this.timer < this.secToNavOnce){
