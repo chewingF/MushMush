@@ -5,9 +5,19 @@ using UnityEngine;
 public class NodeTracker : MonoBehaviour
 {
     public Transform target;
+    private SpriteRenderer sr;
+
+    void Start() 
+    {
+        sr = this.gameObject.GetComponent<SpriteRenderer>();
+    }
 
     void Update () 
     {
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            sr.color = Color.red;
+        }
         //Get the Screen positions of the object
         Vector2 positionOnScreen = Camera.main.WorldToViewportPoint (transform.position);
             
