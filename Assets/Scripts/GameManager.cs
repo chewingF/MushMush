@@ -16,6 +16,19 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartGame());
     }
 
+    void Update() 
+    {
+        // if (Input.GetKeyDown(KeyCode.Space)) 
+        // {
+        //     player.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+
+        //     foreach(Transform child in player.transform) 
+        //     {
+        //         child.gameObject.layer = LayerMask.NameToLayer("IgnorePostProcessing");
+        //     }
+        // }
+    }
+
     private IEnumerator StartGame() 
     {
         yield return new WaitForSeconds(3f);
