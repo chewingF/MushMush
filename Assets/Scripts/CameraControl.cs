@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+    public GameObject rootsManager;
     private Root _currRoot
     {
         get
@@ -26,6 +27,6 @@ public class CameraControl : MonoBehaviour
 
     void UpdateLastPos()
     {
-        LastPos.position = this._currRoot.GetLastPoint();
+        LastPos.position = this._currRoot.GetLastPoint()+(Vector2)rootsManager.transform.position;
     }
 }

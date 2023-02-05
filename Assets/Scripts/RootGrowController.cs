@@ -11,6 +11,7 @@ public class RootGrowController : MonoBehaviour
     }
 
     public float mouseSensitive = 1;
+    public float TurnAngLmt = 15;
 
     private Vector2 _growDir = new Vector2();
     public float growRate = 0.01f;
@@ -57,25 +58,17 @@ public class RootGrowController : MonoBehaviour
     void UpdateDirInput(){
 
         Vector2 newGrowDir = this._growDir;
-        // bool isRight = Vector2.Dot(this._growDir, Vector2.right) >= 0;
-        // bool isUp = Vector2.Dot(this._growDir, Vector2.up) >= 0;
-
         Vector2 moveDt = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        // Vector2 moveDt = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
         newGrowDir += moveDt;
         newGrowDir.Normalize();
 
-        // Vector2 mouseDelta = (Vector2)Input.mousePosition - this._lastMousePos;
-        // mouseDelta.Normalize();
-        // mouseDelta *= mouseSensitive;
-        // this._lastMousePos = (Vector2)Input.mousePosition;
+        // Check angle limit
+        Vector2 lastDir = this._currRoot.GetLastDir(30);
+        if (Vector2.Angle(lastDir, newGrowDir) <= TurnAngLmt){
+            this._growDir = newGrowDir;
+        }
 
-        // newGrowDir += mouseDelta;
-        // newGrowDir.Normalize();
-
-        Debug.DrawLine(Vector3.zero, newGrowDir * 10, Color.red);
-    
-        this._growDir = newGrowDir;
 
     }
 
@@ -91,9 +84,6 @@ public class RootGrowController : MonoBehaviour
             }
             else
             {
-                //cant grow roots on existed roots
-                //Debug.Log(this._currRoot.gameObject);
-                //this._currRoot.gameObject.layer = cantDrawOerLayerIndex;
                 this._currRoot.AddPoint(_growDir * growSpd * Time.deltaTime + lastPos);
                 this._currRoot.lineRenderer.sortingLayerID = rootsSortingLayerIndex;
                 InkSystem.decInk(1);

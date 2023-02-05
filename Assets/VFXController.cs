@@ -69,4 +69,9 @@ public class VFXController : MonoBehaviour
             yield return null;
         } while (timer <= fadeTime);
     }
+
+    public void ChangeColor(float saturationVal) 
+    {
+        pp_colAdjust.saturation.value = saturationVal;
+    }
 }

@@ -25,11 +25,13 @@ public class RootsManager : Singleton<RootsManager>
         // generate a parent go for root instances
         GameObject rootsP = new GameObject();
         rootsP.transform.SetParent(this.transform);
+        rootsP.transform.localPosition = Vector3.zero;
         this._rootsPTran = rootsP.transform;
 
         // generate the first root instance
         GameObject ri = GameObject.Instantiate(RootIns);
         ri.transform.SetParent(this._rootsPTran);
+        ri.transform.localPosition = Vector3.zero;
 
         // Set first main root
         this._mainRoot = ri.GetComponent<Root>();
