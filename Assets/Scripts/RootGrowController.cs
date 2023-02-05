@@ -97,6 +97,7 @@ public class RootGrowController : MonoBehaviour
 
             if (hit)
             {
+                Debug.Log("Bonk");
                 return;
             }
             else
