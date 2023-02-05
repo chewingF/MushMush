@@ -4823,6 +4823,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4074645326815984529, guid: 148f0f89d5527c140ac890919ae7ab7c, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 255427095}
     - target: {fileID: 4074645326815984542, guid: 148f0f89d5527c140ac890919ae7ab7c, type: 3}
       propertyPath: m_Name
       value: NavigatorUI
