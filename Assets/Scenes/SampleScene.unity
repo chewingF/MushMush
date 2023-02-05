@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dced9aaf534f54195fb54193c5b34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootsManager: {fileID: 0}
 --- !u!4 &36404296
 Transform:
   m_ObjectHideFlags: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   mouseSensitive: 0.3
   dirChkLen: 100
   TurnAngLmt: 30
+  rootsManager: {fileID: 1665287107}
   growRate: 0.1
   cantDrawOverLayer:
     serializedVersion: 2
@@ -704,6 +706,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1665287107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1400122417253479224, guid: f525c223478549e4eb1562386ef5df31, type: 3}
+  m_PrefabInstance: {fileID: 1400122418498730886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962172970
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +757,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7763442, y: 1}
+    m_SensorSize: {x: 1.7790023, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
