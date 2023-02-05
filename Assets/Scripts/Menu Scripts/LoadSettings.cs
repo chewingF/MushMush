@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Settings : MonoBehaviour
+public class LoadSettings : MonoBehaviour
 {
-   public void LoadSettings()
+   public void LoadSettingsScene()
    {
     Debug.Log("Load Settings");
     SceneManager.LoadScene("Settings");
