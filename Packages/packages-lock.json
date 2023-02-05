@@ -144,7 +144,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< Updated upstream
     "com.unity.postprocessing": {
       "version": "3.2.2",
       "depth": 0,
@@ -154,8 +153,6 @@
       },
       "url": "https://packages.unity.com"
     },
-=======
->>>>>>> Stashed changes
     "com.unity.render-pipelines.core": {
       "version": "12.1.7",
       "depth": 1,
