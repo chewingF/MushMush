@@ -2260,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6401422859875745714, guid: eebd01f7fddb944419c4a042e6cd8fec, type: 3}
       propertyPath: orthographic size
-      value: 1
+      value: 0.39
       objectReference: {fileID: 0}
     - target: {fileID: 6401422859875745723, guid: eebd01f7fddb944419c4a042e6cd8fec, type: 3}
       propertyPath: m_CustomBlends
@@ -2276,15 +2276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6401422859875745725, guid: eebd01f7fddb944419c4a042e6cd8fec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.991333
+      value: 5.0442343
       objectReference: {fileID: 0}
     - target: {fileID: 6401422859875745725, guid: eebd01f7fddb944419c4a042e6cd8fec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.241333
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 6401422859875745725, guid: eebd01f7fddb944419c4a042e6cd8fec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.208954
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6401422859875745725, guid: eebd01f7fddb944419c4a042e6cd8fec, type: 3}
       propertyPath: m_LocalRotation.w
