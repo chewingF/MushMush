@@ -48,6 +48,6 @@ public class Root : MonoBehaviour
     public void SetLineWidth(float width)
     {
         lineRenderer.startWidth = width;
-        lineRenderer.endWidth = width;
+        lineRenderer.endWidth = width/3;
     }
 }

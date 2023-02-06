@@ -44,6 +44,7 @@ public class RootGrowController : Singleton<RootGrowController>
 
         cantDrawOerLayerIndex = LayerMask.NameToLayer("CantDrawOver");
         rootsSortingLayerIndex = SortingLayer.NameToID("Roots");
+        _currRoot.SetLineWidth(0.1f);
     }
 
     // Update is called once per frame
@@ -135,3 +136,4 @@ public class RootGrowController : Singleton<RootGrowController>
          return new Vector2(cos * tx - sin * ty, sin * tx + cos * ty);
      }
  }
+
