@@ -26,6 +26,9 @@ public class BuildaConnection : MonoBehaviour
             RootGrowController.Instance.inputAllowed = false;
             RootGrowController.Instance.inputDrawing = false;
 
+            // colorful
+            GameManager.Instance.vfxControl.ChangeColor(5f, 0f);
+
             //adjust the camera here!
             CinemachineSwitcher.Instance.SwitchCamera("Full");
 
