@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class lastPosControl : MonoBehaviour
 {
-    public GameObject rootsManager;
     private Root _currRoot
     {
         get
@@ -27,7 +26,7 @@ public class lastPosControl : MonoBehaviour
 
     void UpdateLastPos()
     {
-        LastPos.position = this._currRoot.GetLastPoint()+(Vector2)rootsManager.transform.position;
+        LastPos.position = this._currRoot.GetLastPoint()+(Vector2)RootsManager.Instance.transform.position;
     }
 
 }
