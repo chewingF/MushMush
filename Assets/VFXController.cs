@@ -110,7 +110,7 @@ public class VFXController : MonoBehaviour
 
         do
         {
-            pp_colAdjust.saturation.value += 0.1f;
+            pp_colAdjust.saturation.value += 0.5f;
 
             timer += Time.deltaTime;
 

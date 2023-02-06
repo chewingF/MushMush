@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundController : MonoBehaviour
+public class SoundController : Singleton<SoundController>
 {
     FiniteStateMachine<SoundController> soundSM;
     public AudioSource bgmSrc;

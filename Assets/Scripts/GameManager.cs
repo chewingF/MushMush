@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public Camera mainCam;
     public CinemachineBrain camBrain;
     public CinemachineVirtualCamera cutsceneCam;
     public CinemachineVirtualCamera followCam;
 
-    [SerializeField]private VFXController vfxControl;
+    [SerializeField]public VFXController vfxControl;
 
     public GameObject[] eyes;
     public GameObject player;
     public GameObject[] blueObjects;
+
+    public static int MushCount = 0;
     
     void Start() 
     {
