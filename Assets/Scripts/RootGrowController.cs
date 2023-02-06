@@ -25,8 +25,8 @@ public class RootGrowController : Singleton<RootGrowController>
     public float growSpd = 0.01f;
     [HideInInspector]
     public float growRate = 1;
-    
-    private bool inputDrawing;
+    [HideInInspector]
+    public bool inputDrawing;
 
     public LayerMask cantDrawOverLayer;
     int cantDrawOerLayerIndex;

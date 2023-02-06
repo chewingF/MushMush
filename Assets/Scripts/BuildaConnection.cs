@@ -2,19 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class BuildaConnection : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public GameObject blowGO;
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Connections")
+        Debug.Log("OnTriggerEnter2D");
+        if (collision.gameObject.name == "LastPos")
         {
             Debug.Log("HI");
             InkSystem.addInk(1000);
-            collision.gameObject.transform.Find("glow").gameObject.SetActive(true);
+            if (blowGO)
+            {
+                blowGO.SetActive(true);
+            }
+
+            Debug.Log("attached");
+
+            // pause grow
+            RootGrowController.Instance.inputAllowed = false;
+            RootGrowController.Instance.inputDrawing = false;
 
             //adjust the camera here!
-            CinemachineSwitcher.Instance.SwitchCamera("Mush");
+            CinemachineSwitcher.Instance.SwitchCamera("Full");
+
         }
     }
-
 }
