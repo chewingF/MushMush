@@ -32,6 +32,18 @@ public class BuildaConnection : MonoBehaviour
             //adjust the camera here!
             CinemachineSwitcher.Instance.SwitchCamera("Full");
 
+            //SoundController.Instance.
+
+            StartCoroutine(WaitForZoom());
+
         }
+    }
+
+
+    private IEnumerator WaitForZoom()
+    {
+        yield return new WaitForSeconds(3f);
+
+        CinemachineSwitcher.Instance.SwitchCamera("Follow");
     }
 }
