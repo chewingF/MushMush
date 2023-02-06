@@ -12,7 +12,7 @@ public class SoundController : MonoBehaviour
     public AudioClip growing;
     public AudioClip connecting;
 
-    public int gameState = 0;
+    public int gameState = 1;
 
     public AudioClip[] bgmClips;
     public AudioClip[] mushClips;
