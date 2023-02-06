@@ -17,6 +17,8 @@ public class SoundController : MonoBehaviour
     public AudioClip[] bgmClips;
     public AudioClip[] mushClips;
 
+    [SerializeField] bool _isTesting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,24 @@ public class SoundController : MonoBehaviour
     void Update()
     {
         soundSM.Update();
+
+        if (_isTesting)
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                NextAudioState();
+            }
+
+        }
+
+    }
+
+    public void NextAudioState()
+    {
+        if (gameState != 4)
+        {
+            gameState++;
+        }
     }
 
     public void PlayGrowingSound()
@@ -66,7 +86,7 @@ public class SoundController : MonoBehaviour
         }
         public override void OnExit()
         {
-           
+            Context.mushSrc.Stop();
         }
     }
 
@@ -113,6 +133,7 @@ public class SoundController : MonoBehaviour
 
         public override void OnExit()
         {
+            Context.mushSrc.Stop();
         }
     }
     private class State3 : FiniteStateMachine<SoundController>.State //Root 2 State
@@ -135,6 +156,7 @@ public class SoundController : MonoBehaviour
 
         public override void OnExit()
         {
+            Context.bgmSrc.Stop();
         }
     }
 
@@ -148,12 +170,13 @@ public class SoundController : MonoBehaviour
             Context.PlayMushSound(2, 3);
             //Play Mosaic Music on Loop on delay
             Context.bgmSrc.clip = Context.bgmClips[2];
-            Context.bgmSrc.PlayDelayed(6f);
+            Context.bgmSrc.PlayDelayed(7f);
         }
 
         public override void OnExit()
         {
             Context.bgmSrc.Stop();
+            Context.mushSrc.Stop();
         }
     }
 }
