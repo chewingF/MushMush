@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class CinemachineSwitcher : MonoBehaviour
+public class CinemachineSwitcher : Singleton<CinemachineSwitcher>
 {
-    private static CinemachineSwitcher _instance;
-    public static CinemachineSwitcher Instance { get { return _instance; } }
-
     Animator _animator;
     [SerializeField] bool _keyTest = false;
 
-    private void Awake()
+    private  void  Awake()
     {
+        base.Awake();
         _animator = GetComponent<Animator>();
 
         if (_animator == null)
         {
             //Debug.LogError("Animator is Null");
         }
+
     }
 
     // Update is called once per frame
