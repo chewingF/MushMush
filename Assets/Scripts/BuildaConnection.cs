@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 public class BuildaConnection : MonoBehaviour
@@ -32,7 +33,7 @@ public class BuildaConnection : MonoBehaviour
             //adjust the camera here!
             CinemachineSwitcher.Instance.SwitchCamera("Full");
 
-            //SoundController.Instance.
+            SoundController.Instance.NextAudioState();
 
             StartCoroutine(WaitForZoom());
 
@@ -45,5 +46,13 @@ public class BuildaConnection : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         CinemachineSwitcher.Instance.SwitchCamera("Follow");
+        SoundController.Instance.NextAudioState();
+        RootGrowController.Instance.inputAllowed = true;
+        GameManager.MushCount += 1;
+
+        if (GameManager.MushCount >= 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
