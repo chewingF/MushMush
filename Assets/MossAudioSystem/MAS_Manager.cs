@@ -47,6 +47,7 @@ public class MAS_Manager : MonoBehaviour
             _instance = this;
 
         this._audioSource = this.GetComponent<AudioSource>();
+        this._audioSource.loop = true;
     }
 
     protected virtual void OnDestroy()
@@ -63,11 +64,24 @@ public class MAS_Manager : MonoBehaviour
         newGO.AddComponent<MAS_Manager>();
     }
 
+    /// <summary>
+    /// Plays a sound effect with position and volume.
+    /// </summary>
+    /// <param name="ac">The AudioClip to play.</param>
+    /// <param name="position">The position to play the sound effect at.</param>
+    /// <param name="volume">The volume of the sound effect.</param>
     public static void PlaySoundEffect(AudioClip ac, Vector3 position, float volume)
     {
         AudioSource.PlayClipAtPoint(ac, position, volume);
     }
 
+    /// <summary>
+    /// Fades out the current background music and fades in a new one.
+    /// </summary>
+    /// <param name="ac">The new AudioClip to play. Only fades out if this is null.</param>
+    /// <param name="fadeOutTime">The fade out time.</param>
+    /// <param name="fadeInTime">The fade in time.</param>
+    /// <param name="vol">The volume of the new clip. If it is null, original volume will be kept.</param>
     public static void PlayBackgroundMusic(AudioClip ac, float fadeOutTime, float fadeInTime, float? vol = null)
     {
         if (MAS_Manager.Instance._fading)
@@ -93,6 +107,10 @@ public class MAS_Manager : MonoBehaviour
         MAS_Manager.Instance.StartCoroutine(Fade());
     }
 
+    /// <summary>
+    /// Fade out current background music
+    /// </summary>
+    /// <param name="fadeTime">fade out time</param>
     public static void StopBackgroundMusic(float fadeTime)
     {
         MAS_Manager.Instance._tofadeAudio = null;
@@ -100,7 +118,10 @@ public class MAS_Manager : MonoBehaviour
         MAS_Manager.Instance.StartCoroutine(Fade());
     }
 
-
+    /// <summary>
+    /// IEnumerator used to control background fade
+    /// </summary>
+    /// <returns></returns>
     private static IEnumerator Fade()
     {
         MAS_Manager.Instance._fading = true;
@@ -142,14 +163,26 @@ public class MAS_Manager : MonoBehaviour
         MAS_Manager.Instance._fading = false;
     }
 
+    /// <summary>
+    /// change background music volume
+    /// </summary>
+    /// <param name="volume"></param>
     public static void SetBackgroundMusicVol(float volume)
     {
         MAS_Manager.Instance._audioSource.volume = volume;
     }
+
+    /// <summary>
+    /// Pause backgrond music
+    /// </summary>
     public static void PauseBackgroundMusic()
     {
         MAS_Manager.Instance._audioSource.Pause();
     }
+
+    /// <summary>
+    /// Unpause background music
+    /// </summary>
     public static void UnPauseBackgroundMusic()
     {
         MAS_Manager.Instance._audioSource.UnPause();
