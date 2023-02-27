@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4659779506154259524}
   - component: {fileID: 7420327372836906506}
   m_Layer: 0
-  m_Name: MAS_BgPlay
+  m_Name: MAS_BgFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgAudio: {fileID: 0}
-  fadeTIme: 1
+  fadeOutTime: 1
+  fadeInTime: 1
+  fadeToVolume: 1
+  autoPlay: 0
